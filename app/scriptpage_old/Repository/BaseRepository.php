@@ -2,14 +2,10 @@
 
 namespace App\Scriptpage\Repository;
 
-use App\Scriptpage\Contracts\IRepository;
+use Scriptpage\Repository\BaseRepository as ScriptpageRepository;
 
-abstract class BaseRepository
-implements IRepository
+abstract class BaseRepository extends ScriptpageRepository
 {
-    use traitRepository;
-    use traitEloquentRepository;
-
     /**
      * Request paginate data.
      */
@@ -17,11 +13,11 @@ implements IRepository
     protected $take = 5;
     protected $paginate = true;
 
-    
+
     function searchData(array $data)
     {
         $this->search = empty($data['search']) ? '' : $data['search'];
-        $this->take = (int)(empty($data['take']) ? 5 : $data['take']);
+        $this->take = (int) (empty($data['take']) ? 5 : $data['take']);
         $this->paginate = (empty($data['paginate']) ? 'true' : $data['paginate']) == 'true';
     }
 

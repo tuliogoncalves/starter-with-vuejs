@@ -3,11 +3,10 @@
 namespace App\Repositories;
 
 use App\Models\User;
-use App\Scriptpage\Repository\BaseRepository;
 
 class UserRepository extends BaseRepository
 {
-    protected string $modelClass = User::class;
+    protected $modelClass = User::class;
 
     function getData($take = null, $paginate = null) {
         $query = $this->newQuery();

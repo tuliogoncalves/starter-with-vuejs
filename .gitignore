@@ -15,3 +15,9 @@ yarn-error.log
 /.idea
 /.vscode
 /.docker
+
+/sail_client/logs
+
+/sail_client
+sail-docker-compose.yml
+sail-docker-compose-prod.yml
