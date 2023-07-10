@@ -15,10 +15,21 @@ class EnsureUserHasRole
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, $role)
+    public function handle(Request $request, Closure $next, $role = null)
     {
-        if (!$request->user()->hasRole($role)) {
-            abort(403, 'Unauthorized action.');
+        $hasRole = false;
+        $errors = [];
+
+        $user = $request->user();
+
+        if (is_null($user) == false) {
+            $hasRole = is_null($role)
+                ? true
+                : $user->hasRole($role);
+        }
+
+        if (!$hasRole) {
+            abort(403, '403 Unauthorized Roles (Middleware).');
         }
 
         return $next($request);

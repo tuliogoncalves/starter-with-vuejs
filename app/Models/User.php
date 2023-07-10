@@ -50,12 +50,18 @@ class User extends Authenticatable
     ];
 
     protected $appends = [
-        'listOfRoles'
+        // 'listOfRoles'
     ];
 
     public function hasRole($name)
     {
-        $role = $this->roles()->where('name', $name)->first();
+        $roleName = explode('.', $name);
+        $roleName[1] = $roleName[1] ?? '';
+        
+        $role = $this->roles()
+            ->whereIn('name', [$roleName[0], $name])
+            ->first();
+
         return isset($role);
     }
 

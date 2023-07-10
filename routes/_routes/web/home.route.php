@@ -13,6 +13,3 @@ Route::get('info', function () {
     phpinfo();
 })->middleware("role:info");
 
-Route::get('getdata/{model}', [GetdataController::class, 'getData'])
-    ->middleware("role:getdata")
-    ->name('getdata');

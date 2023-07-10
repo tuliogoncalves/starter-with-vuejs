@@ -21,3 +21,9 @@ yarn-error.log
 /sail_client
 sail-docker-compose.yml
 sail-docker-compose-prod.yml
+
+/sail_client/logs
+
+/sail_client
+sail-docker-compose.yml
+sail-docker-compose-prod.yml
