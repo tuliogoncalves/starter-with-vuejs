@@ -5,53 +5,114 @@
         createTitle="Add new User"
         updateTitle="Update User"
         :urlUpdate="route('users.update', form.id ? form.id : 0)"
-        :urlStore="route('users.store')"
+        :urlStore="route('users.store', form.id ? form.id : 0)"
         :urlDestroy="route('users.destroy', form.id ? form.id : 0)"
         :form="form"
     >
-        <!-- Name -->
-        <div class="form-group w-75">
-            <label for="user-name">Name</label>
-            <input
-                id="user-name"
-                type="text"
-                class="form-control"
-                :class="{ 'is-invalid': errors.name }"
-                v-model="form.name"
-            />
-            <span class="invalid-feedback">{{ errors.name }}</span>
-        </div>
+        <div class="col">
+            <div class="card card-primary card-outline card-outline-tabs">
+                <div class="card-header p-0 border-bottom-0">
+                    <ul
+                        class="nav nav-tabs"
+                        id="custom-tabs-four-tab"
+                        role="tablist"
+                    >
+                        <li class="nav-item">
+                            <a
+                                class="nav-link active"
+                                id="custom-tabs-four-home-tab"
+                                data-toggle="pill"
+                                href="#custom-tabs-four-home"
+                                role="tab"
+                                aria-controls="custom-tabs-four-home"
+                                aria-selected="true"
+                                >User</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                id="custom-tabs-four-profile-tab"
+                                data-toggle="pill"
+                                href="#custom-tabs-four-profile"
+                                role="tab"
+                                aria-controls="custom-tabs-four-profile"
+                                aria-selected="false"
+                                >Security</a
+                            >
+                        </li>
+                    </ul>
+                </div>
 
-        <!-- Email -->
-        <div class="form-group w-50">
-            <label for="user-email">Email</label>
-            <input
-                id="user-email"
-                type="text"
-                class="form-control"
-                :class="{ 'is-invalid': errors.email }"
-                v-model="form.email"
-            />
-            <div class="invalid-feedback">{{ errors.email }}</div>
-        </div>
+                <div class="card-body">
+                    <div class="tab-content" id="custom-tabs-four-tabContent">
+                        <div
+                            class="tab-pane fade show active"
+                            id="custom-tabs-four-home"
+                            role="tabpanel"
+                            aria-labelledby="custom-tabs-four-home-tab"
+                        >
+                            <!-- Name -->
+                            <div class="form-group w-75">
+                                <label for="user-name">Name</label>
+                                <input
+                                    id="user-name"
+                                    type="text"
+                                    class="form-control"
+                                    :class="{ 'is-invalid': errors.name }"
+                                    v-model="form.name"
+                                />
+                                <span class="invalid-feedback">{{
+                                    errors.name
+                                }}</span>
+                            </div>
 
-        <!-- Roles -->
-        <div class="form-group">
-            <label>Roles</label>
-            <select
-                id="user-roles"
-                class="form-control select2"
-                multiple="multiple"
-                name="user-roles"
-                data-placeholder="Select a Roles"
-            >
-                <option
-                    v-for="role in $page.props.flash.user.listOfRoles"
-                    :value="role.id"
-                >
-                    {{ role.name }}
-                </option>
-            </select>
+                            <!-- Email -->
+                            <div class="form-group w-50">
+                                <label for="user-email">Email</label>
+                                <input
+                                    id="user-email"
+                                    type="text"
+                                    class="form-control"
+                                    :class="{ 'is-invalid': errors.email }"
+                                    v-model="form.email"
+                                />
+                                <div class="invalid-feedback">
+                                    {{ errors.email }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="tab-pane fade"
+                            id="custom-tabs-four-profile"
+                            role="tabpanel"
+                            aria-labelledby="custom-tabs-four-profile-tab"
+                        >
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label>Roles</label>
+                                            <select
+                                                class="duallistbox"
+                                                multiple="multiple"
+                                            >
+                                                <option
+                                                    v-for="role in this.roles"
+                                                    :value="role.id"
+                                                >
+                                                    {{ role.name }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </crud>
 </template>
@@ -68,6 +129,7 @@ export default {
     props: {
         errors: Object,
         data: Object,
+        roles: Object,
     },
 
     data() {
@@ -83,16 +145,17 @@ export default {
     },
 
     mounted() {
-        var userRoles = $("#user-roles");
-        var data = this.data;
         var form = this.form;
+        var data = this.data;
 
-        //Initialize Select2 Elements
-        userRoles.select2();
+        //Bootstrap Duallistbox
+        //----------------------
+        var duallist = $(".duallistbox");
 
         // Trigger
-        userRoles.on("change", function (e) {
-            form.roles = userRoles.val();
+        duallist.on("change", function (e) {
+            // form.duallist = duallist.val();
+            form.roles = duallist.val();
         });
 
         var roles = null;
@@ -104,12 +167,13 @@ export default {
             });
         }
 
-        // Set value to select2 filed
-        userRoles.val(roles);
-        userRoles.trigger("change");
+        // Set value to duallist field
+        duallist.val(roles);
+        duallist.trigger("change");
 
-        userRoles.on("change", function (e) {
-            form.roles = userRoles.val();
+        // Initialize
+        duallist.bootstrapDualListbox({
+            infoText: false,
         });
     },
 };

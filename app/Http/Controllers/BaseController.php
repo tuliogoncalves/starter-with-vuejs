@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Inertia\Response;
-use Scriptpage\Controllers\BaseController as ScriptpageController;
+use Scriptpage\Controllers\RepositoryController;
 
-class BaseController extends ScriptpageController
+class BaseController extends RepositoryController
 {
     protected $allowFilters = false;
 
@@ -31,7 +30,6 @@ class BaseController extends ScriptpageController
         return session('url');
     }
 
-
     /**
      * render
      *
@@ -43,7 +41,6 @@ class BaseController extends ScriptpageController
     {
         return Inertia::render($component, $props);
     }
-
 
     /**
      * success response method.
