@@ -16,6 +16,7 @@ yarn-error.log
 /.vscode
 /.docker
 
+scriptpage
 /sail_client/logs
 
 /sail_client
