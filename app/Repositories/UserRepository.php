@@ -9,11 +9,11 @@ class UserRepository extends BaseRepository
 {
     protected $modelClass = User::class;
     protected $allowFilters = true;
-    protected $ignoreValidation = false;
+    protected $ignoreValidationException = true;
     // protected $stopOnFirstFailure = true;
 
     protected $validationClass = [
-        // 'store' => UserStore::class
+        'update' => UserUpdate::class
     ];
 
     protected $customFilters = [
@@ -27,12 +27,12 @@ class UserRepository extends BaseRepository
     public function rules()
     {
         return [
-            'name' => 'required|max:5',
-            'email' => 'required|email|min:15'
+            'name' => 'required|min:5',
+            'email' => 'required|min:5'
         ];
     }
 
-    public function setDataPayload(array $data)
+    public function setDataPayload(array $data=[])
     {
         $this->fill($data);
     }

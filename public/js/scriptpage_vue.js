@@ -20922,7 +20922,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     createTitle: "Add new User",
     updateTitle: "Update User",
     urlUpdate: _ctx.route('users.update', $data.form.id ? $data.form.id : 0),
-    urlStore: _ctx.route('users.store', $data.form.id ? $data.form.id : 0),
+    urlStore: _ctx.route('users.store'),
     urlDestroy: _ctx.route('users.destroy', $data.form.id ? $data.form.id : 0),
     form: $data.form
   }, {

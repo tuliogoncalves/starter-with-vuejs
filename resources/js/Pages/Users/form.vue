@@ -5,7 +5,7 @@
         createTitle="Add new User"
         updateTitle="Update User"
         :urlUpdate="route('users.update', form.id ? form.id : 0)"
-        :urlStore="route('users.store', form.id ? form.id : 0)"
+        :urlStore="route('users.store')"
         :urlDestroy="route('users.destroy', form.id ? form.id : 0)"
         :form="form"
     >

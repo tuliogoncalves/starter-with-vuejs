@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
-use Scriptpage\Controllers\RepositoryController;
+use Scriptpage\Controllers\BaseController as ScriptpageController;
 
-class BaseController extends RepositoryController
+class BaseController extends ScriptpageController
 {
+    protected $allowFilters = false;
+
     /**
      * setBack
      *
