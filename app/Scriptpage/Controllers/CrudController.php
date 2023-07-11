@@ -80,7 +80,7 @@ class CrudController extends BaseController
         ];
     }
 
-    protected function dataShow($id = null, $id2 = null)
+    protected function dataShow($id, $id2)
     {
         return $this->dataEdit($id, $id2);
     }

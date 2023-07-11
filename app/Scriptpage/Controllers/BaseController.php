@@ -47,7 +47,7 @@ class BaseController extends Controller
      */
     protected ICrud $crud;
 
-    
+
 
     /**
      * repositoryClass
@@ -170,6 +170,7 @@ class BaseController extends Controller
             'message'   => $message,
         ];
         $response = array_merge($resp, $result);
+        // dd($this->render($component, $response));
         return $this->render($component, $response);
     }
 }

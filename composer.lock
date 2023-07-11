@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7220f01a293adcef48ea19ebf75a6d27",
+    "content-hash": "f2e738469b7fb70062431c24f22907e4",
     "packages": [
         {
             "name": "brick/math",
@@ -1845,16 +1845,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.67.0",
+            "version": "2.68.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "c1001b3bc75039b07f38a79db5237c4c529e04c8"
+                "reference": "4f991ed2a403c85efbc4f23eb4030063fdbe01da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/c1001b3bc75039b07f38a79db5237c4c529e04c8",
-                "reference": "c1001b3bc75039b07f38a79db5237c4c529e04c8",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/4f991ed2a403c85efbc4f23eb4030063fdbe01da",
+                "reference": "4f991ed2a403c85efbc4f23eb4030063fdbe01da",
                 "shasum": ""
             },
             "require": {
@@ -1943,7 +1943,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-05-25T22:09:47+00:00"
+            "time": "2023-06-20T18:29:04+00:00"
         },
         {
             "name": "nette/schema",
@@ -2955,59 +2955,6 @@
                 }
             ],
             "time": "2021-09-25T23:10:38+00:00"
-        },
-        {
-            "name": "scriptpage/framework",
-            "version": "v2.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tuliogoncalves/scriptpage.git",
-                "reference": "0889b8931a78efea62dafa61ba636e5102b69017"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tuliogoncalves/scriptpage/zipball/0889b8931a78efea62dafa61ba636e5102b69017",
-                "reference": "0889b8931a78efea62dafa61ba636e5102b69017",
-                "shasum": ""
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Scriptpage\\Providers\\ScriptpageServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Scriptpage\\": "src/framework/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Túlio Gonçalves",
-                    "email": "framework@scriptpage.com.br",
-                    "homepage": "http://scriptpage.com.br",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Core code of the Scriptpage framework",
-            "keywords": [
-                "eloquent",
-                "jwt",
-                "laravel",
-                "repository",
-                "url query string"
-            ],
-            "support": {
-                "issues": "https://github.com/tuliogoncalves/scriptpage/issues",
-                "source": "https://github.com/tuliogoncalves/scriptpage/tree/v2.0.2"
-            },
-            "time": "2023-06-27T03:06:06+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6797,16 +6744,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.6.9",
+            "version": "9.6.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a9aceaf20a682aeacf28d582654a1670d8826778"
+                "reference": "a6d351645c3fe5a30f5e86be6577d946af65a328"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a9aceaf20a682aeacf28d582654a1670d8826778",
-                "reference": "a9aceaf20a682aeacf28d582654a1670d8826778",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a6d351645c3fe5a30f5e86be6577d946af65a328",
+                "reference": "a6d351645c3fe5a30f5e86be6577d946af65a328",
                 "shasum": ""
             },
             "require": {
@@ -6880,7 +6827,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.9"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.10"
             },
             "funding": [
                 {
@@ -6896,7 +6843,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-06-11T06:13:56+00:00"
+            "time": "2023-07-10T04:04:23+00:00"
         },
         {
             "name": "sebastian/cli-parser",
