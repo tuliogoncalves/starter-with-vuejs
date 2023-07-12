@@ -8,6 +8,7 @@ use App\Repositories\UserRepository;
 
 class UserController extends RepositoryController
 {
+    protected $template = 'Users';
     protected $allowFilters = true;
     // protected $cleanResponse = true;
 

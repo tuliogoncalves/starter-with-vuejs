@@ -11,6 +11,7 @@ use Scriptpage\Repository\BaseRepository;
 
 class RepositoryController extends BaseController
 {
+    protected $template;
     protected BaseRepository $repository;
 
     public function index(Request $request, $id = null)
@@ -26,7 +27,7 @@ class RepositoryController extends BaseController
     public function create(Request $request, $id = null)
     {
         return $this->sendResponse(
-            'Users/form',
+            $this->template.'/form',
             $this->dataCreate($request)
         );
     }
@@ -34,7 +35,7 @@ class RepositoryController extends BaseController
     public function show(Request $request, $id)
     {
         return $this->sendResponse(
-            'Users/form',
+            $this->template.'/form',
             $this->dataShow($request, $id)
         );
     }
@@ -42,7 +43,7 @@ class RepositoryController extends BaseController
     public function edit(Request $request, $id)
     {
         return $this->sendResponse(
-            'Users/form',
+            $this->template.'/form',
             $this->dataEdit($request, $id)
         );
     }
