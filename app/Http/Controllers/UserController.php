@@ -31,4 +31,5 @@ class UserController extends RepositoryController
             'roles' => RoleService::listOfRoles()
         ];
     }
+
 }

@@ -3,8 +3,9 @@
 namespace App\Repositories;
 
 use App\Models\User;
+use Scriptpage\Repository\BaseRepository as ScriptpageRepository;
 
-class UserRepository extends BaseRepository
+class BaseRepository extends ScriptpageRepository
 {
     protected $modelClass = User::class;
     protected $allowFilters = true;
@@ -12,10 +13,6 @@ class UserRepository extends BaseRepository
     // protected $stopOnFirstFailure = true;
 
     protected $validationClass = [
-        // 'update' => UserUpdate::class
-        // 'exception1' => UserUpdate::class
-        // 'exception1' => UserUpdate::class
-        // 'update' => UserUpdate::class
         // 'update' => UserUpdate::class
     ];
 
@@ -31,7 +28,6 @@ class UserRepository extends BaseRepository
     {
         return [
             'name' => 'required|min:5',
-            'email' => 'required|min:5'
         ];
     }
 
@@ -43,8 +39,8 @@ class UserRepository extends BaseRepository
     function search(string $search='')
     {
         $query = $this->getBuilder();
-        $query->Where('name', 'like', '%' . $search . '%')
-            ->orWhere('email', 'like', '%' . $search . '%');
+        // $query->Where('name', 'like', '%' . $search . '%');
+        
         return $query;
     }
 
