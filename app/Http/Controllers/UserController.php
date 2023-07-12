@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Roles\RoleService;
 use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
 
@@ -20,5 +21,13 @@ class UserController extends RepositoryController
         return $this->response(
             $this->repository->doQuery()
         );
+    }
+
+    public function dataShow(Request $request, $id)
+    {
+        return [
+            'data' => $this->repository->find($id),
+            'roles' => RoleService::listOfRoles()
+        ];
     }
 }

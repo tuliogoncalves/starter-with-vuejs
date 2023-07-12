@@ -13,30 +13,21 @@ class RepositoryController extends BaseController
 {
     protected BaseRepository $repository;
 
-    /**
-     * Summary of index
-     * @param Request $request
-     * @return \Inertia\Response
-     */
-    public function index(Request $request)
+    public function index(Request $request, $id = null)
     {
         $this->setSessionUrl($request);
 
         return $this->sendResponse(
             'Users/index',
-            [
-                'paginator' => $this->repository->doQuery()
-            ]
+            $this->dataIndex($request)
         );
     }
 
-    public function create(Request $request)
+    public function create(Request $request, $id = null)
     {
         return $this->sendResponse(
             'Users/form',
-            [
-                'data' => $this->repository->create()
-            ]
+            $this->dataCreate($request)
         );
     }
 
@@ -44,10 +35,7 @@ class RepositoryController extends BaseController
     {
         return $this->sendResponse(
             'Users/form',
-            [
-                'data' => $this->repository->find($id),
-                'roles' => RoleService::listOfRoles()
-            ]
+            $this->dataShow($request, $id)
         );
     }
 
@@ -55,10 +43,34 @@ class RepositoryController extends BaseController
     {
         return $this->sendResponse(
             'Users/form',
-            [
-                'data' => $this->repository->find($id)
-            ]
+            $this->dataEdit($request, $id)
         );
+    }
+
+    public function dataIndex(Request $request, $id = null)
+    {
+        return [
+            'paginator' => $this->repository->doQuery()
+        ];
+    }
+
+    public function dataCreate(Request $request, $id = null)
+    {
+        return [
+            'data' => $this->repository->create()
+        ];
+    }
+
+    public function dataShow(Request $request, $id)
+    {
+        return [
+            'data' => $this->repository->find($id),
+        ];
+    }
+
+    public function dataEdit(Request $request, $id)
+    {
+        return $this->dataShow($request, $id);
     }
 
     function store(Request $request)
@@ -67,13 +79,13 @@ class RepositoryController extends BaseController
         $repository->setDataPayload($request->all());
 
         // Get Validator data
-        $validator = $repository->getValidator();
-        
+        $validator = $repository->getValidator('store');
+
         if ($validator->fails()) {
             return back()->withErrors($validator);
         } else {
             // Try storage new data
-            $repository->store();
+            $model = $repository->store();
 
             // Success flash message
             Session::flash('success', 'Registro Adicionado com Sucesso');
@@ -89,7 +101,7 @@ class RepositoryController extends BaseController
 
         // Get Validator
         $validator = $repository->getValidator('update');
-        
+
         if ($validator->fails()) {
             // Errors flash message
             return back()->withErrors($validator);
