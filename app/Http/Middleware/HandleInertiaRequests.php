@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Illuminate\Foundation\Application;
+use Scriptpage\Framework;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -43,6 +45,11 @@ class HandleInertiaRequests extends Middleware
                 'user' => fn () => $request->user()
                     ? $request->user()->only('id', 'name', 'email', 'roles')
                     : null,
+                'versions' => [
+                    'php' => PHP_VERSION,
+                    'laravel' => Application::VERSION,
+                    'scriptpage' => Framework::VERSION,
+                ]
             ],
         ]);
     }

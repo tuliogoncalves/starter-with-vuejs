@@ -9,7 +9,7 @@
         class="brand-image img-circle elevation-3"
         style="opacity: 0.8"
       />
-      <span class="brand-text font-weight-light">Scriptpage v1.33</span>
+      <span class="brand-text font-weight-light">Scriptpage v{{ this.$page.props.flash.versions.scriptpage }}</span>
     </a>
 
     <!-- Sidebar -->

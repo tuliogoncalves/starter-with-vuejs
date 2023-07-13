@@ -19,7 +19,7 @@
 		<div class="login-box">
 			<div class="login-logo">
 				<a href="https://scriptpage.com.br"
-					><b>Scriptpage</b><sup>v1.3</sup></a
+					><b>Scriptpage</b><sup>v{{ this.$page.props.flash.versions.scriptpage }}</sup></a
 				>
 			</div>
 

@@ -2962,12 +2962,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tuliogoncalves/scriptpage.git",
-                "reference": "cd8fdc4642dfb19a8d9a66e87c8d4e243db0a1a4"
+                "reference": "538b14e1905bc32bdfddfd2d43b23c028aad2b37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tuliogoncalves/scriptpage/zipball/cd8fdc4642dfb19a8d9a66e87c8d4e243db0a1a4",
-                "reference": "cd8fdc4642dfb19a8d9a66e87c8d4e243db0a1a4",
+                "url": "https://api.github.com/repos/tuliogoncalves/scriptpage/zipball/538b14e1905bc32bdfddfd2d43b23c028aad2b37",
+                "reference": "538b14e1905bc32bdfddfd2d43b23c028aad2b37",
                 "shasum": ""
             },
             "default-branch": true,
@@ -3008,7 +3008,7 @@
                 "issues": "https://github.com/tuliogoncalves/scriptpage/issues",
                 "source": "https://github.com/tuliogoncalves/scriptpage/tree/master"
             },
-            "time": "2023-07-13T12:55:26+00:00"
+            "time": "2023-07-13T15:16:25+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
