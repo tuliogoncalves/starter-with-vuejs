@@ -26,10 +26,26 @@ class UserController extends RepositoryController
 
     public function dataShow(Request $request, $id)
     {
+        $builder = $this->repository->getBuilder();
         return [
-            'data' => $this->repository->find($id),
+            'data' => $builder->with('roles')->find($id),
             'roles' => RoleService::listOfRoles()
         ];
     }
 
+    function store(Request $request)
+    {
+        $result = parent::store($request);
+        $user = $this->model;
+        if(isset($user)) $this->repository->updateRoles($user);
+        return $result;
+    }
+    
+    function update(Request $request, $id)
+    {
+        $result = parent::update($request, $id);
+        $user = $this->model;
+        if(isset($user)) $this->repository->updateRoles($user);
+        return $result;
+    }
 }

@@ -14,6 +14,12 @@ class RepositoryController extends BaseController
     protected $template;
     protected BaseRepository $repository;
 
+    /**
+     * Index
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $id
+     * @return \Inertia\Response
+     */
     public function index(Request $request, $id = null)
     {
         $this->setSessionUrl($request);
@@ -24,6 +30,12 @@ class RepositoryController extends BaseController
         );
     }
 
+    /**
+     * Create
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $id
+     * @return \Inertia\Response
+     */
     public function create(Request $request, $id = null)
     {
         return $this->sendResponse(
@@ -32,6 +44,12 @@ class RepositoryController extends BaseController
         );
     }
 
+    /**
+     * Show
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $id
+     * @return \Inertia\Response
+     */
     public function show(Request $request, $id)
     {
         return $this->sendResponse(
@@ -40,6 +58,12 @@ class RepositoryController extends BaseController
         );
     }
 
+    /**
+     * Edit
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $id
+     * @return \Inertia\Response
+     */
     public function edit(Request $request, $id)
     {
         return $this->sendResponse(
@@ -48,6 +72,12 @@ class RepositoryController extends BaseController
         );
     }
 
+    /**
+     * dataIndex
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $id
+     * @return array
+     */
     public function dataIndex(Request $request, $id = null)
     {
         return [
@@ -55,6 +85,12 @@ class RepositoryController extends BaseController
         ];
     }
 
+    /**
+     * dataCreate
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $id
+     * @return array<Model>
+     */
     public function dataCreate(Request $request, $id = null)
     {
         return [
@@ -62,6 +98,12 @@ class RepositoryController extends BaseController
         ];
     }
 
+    /**
+     * dataShow
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $id
+     * @return array
+     */
     public function dataShow(Request $request, $id)
     {
         return [
@@ -69,11 +111,22 @@ class RepositoryController extends BaseController
         ];
     }
 
+    /**
+     * dataEdit
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $id
+     * @return array
+     */
     public function dataEdit(Request $request, $id)
     {
         return $this->dataShow($request, $id);
     }
 
+    /**
+     * store
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     function store(Request $request)
     {
         $repository = $this->repository;
@@ -86,7 +139,7 @@ class RepositoryController extends BaseController
             return back()->withErrors($validator);
         } else {
             // Try storage new data
-            $model = $repository->store();
+            $this->model = $repository->store();
 
             // Success flash message
             Session::flash('success', 'Registro Adicionado com Sucesso');
@@ -95,6 +148,12 @@ class RepositoryController extends BaseController
         return Redirect::to($this->getSessionUrl());
     }
 
+    /**
+     * update
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     function update(Request $request, $id)
     {
         $repository = $this->repository;
@@ -108,7 +167,7 @@ class RepositoryController extends BaseController
             return back()->withErrors($validator);
         } else {
             // Try storage new data
-            $repository->update($id);
+            $this->model = $repository->update($id);
 
             // Success flash message
             Session::flash('success', 'Registro Adicionado com Sucesso');
@@ -117,6 +176,12 @@ class RepositoryController extends BaseController
         return Redirect::to($this->getSessionUrl());
     }
 
+    /**
+     * destroy
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     function destroy(Request $request, $id)
     {
         // Delete record

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Cruds;
+namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Scriptpage\Repository\BaseCrud;
 
-class ExampleCrud extends BaseCrud
+class ExampleCrud_OLD
 {
 
     protected array $messages = [
