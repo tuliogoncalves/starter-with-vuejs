@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5404c90cd0a2699362e741ae7d043b5c",
+    "content-hash": "aa6c58e66f962508dff9b90e4451b562",
     "packages": [
         {
             "name": "brick/math",
@@ -2958,7 +2958,7 @@
         },
         {
             "name": "scriptpage/framework",
-            "version": "dev-master",
+            "version": "v2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tuliogoncalves/scriptpage.git",
@@ -2970,7 +2970,6 @@
                 "reference": "538b14e1905bc32bdfddfd2d43b23c028aad2b37",
                 "shasum": ""
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -3006,7 +3005,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tuliogoncalves/scriptpage/issues",
-                "source": "https://github.com/tuliogoncalves/scriptpage/tree/master"
+                "source": "https://github.com/tuliogoncalves/scriptpage/tree/v2.1.3"
             },
             "time": "2023-07-13T15:16:25+00:00"
         },
@@ -7916,9 +7915,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "scriptpage/framework": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
