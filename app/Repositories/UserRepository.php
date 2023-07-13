@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Role;
 use App\Models\User;
 
 class UserRepository extends BaseRepository
@@ -12,10 +13,6 @@ class UserRepository extends BaseRepository
     // protected $stopOnFirstFailure = true;
 
     protected $validationClass = [
-        // 'update' => UserUpdate::class
-        // 'exception1' => UserUpdate::class
-        // 'exception1' => UserUpdate::class
-        // 'update' => UserUpdate::class
         // 'update' => UserUpdate::class
     ];
 
@@ -48,8 +45,21 @@ class UserRepository extends BaseRepository
         return $query;
     }
 
-    protected function appends(): array
+    function updateRoles($user)
     {
-        return [];
+        $roles = $this->roles ?? [];
+
+        foreach ($user->roles as $role) {
+            if (array_search($role->name, $roles) === false) {
+                $role->delete();
+            }
+        }
+
+        foreach ($roles as $role) {
+            Role::updateOrCreate([
+                'user_id' => $user->id,
+                'name' => $role
+            ]);
+        }
     }
 }

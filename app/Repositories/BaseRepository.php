@@ -48,4 +48,5 @@ class BaseRepository extends ScriptpageRepository
     {
         return [];
     }
+
 }

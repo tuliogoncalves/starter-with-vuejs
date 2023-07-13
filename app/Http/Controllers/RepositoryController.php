@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Roles\RoleService;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use Scriptpage\Repository\BaseRepository;
 
 class RepositoryController extends BaseController
 {
+    protected Model $model;
     protected $template;
     protected BaseRepository $repository;
 
