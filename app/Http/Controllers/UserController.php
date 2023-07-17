@@ -29,7 +29,8 @@ class UserController extends RepositoryController
         $builder = $this->repository->getBuilder();
         return [
             'data' => $builder->with('roles')->find($id),
-            'roles' => RoleService::listOfRoles()
+            'roles' => RoleService::listOfRoles(),
+            'permissions' => RoleService::listOfPermissions(),
         ];
     }
 
@@ -40,7 +41,7 @@ class UserController extends RepositoryController
         if(isset($user)) $this->repository->updateRoles($user);
         return $result;
     }
-    
+
     function update(Request $request, $id)
     {
         $result = parent::update($request, $id);

@@ -8,8 +8,11 @@ class RoleService
         return Array(
             self::addListRole('admin', 'Adminstrador'),
             self::addListRole('info', 'PHP-Info'),
-            self::addListRole('getdata', 'Repositories getData()')
+            self::addListRole('getdata', 'Repositories getData')
         );
+    }
+    static function listOfPermissions() {
+        return $permissions = ['','.index','.create','.show','.edit','.store','.update','.destroy'];
     }
 
     private static function addListRole($id, $name): array {
