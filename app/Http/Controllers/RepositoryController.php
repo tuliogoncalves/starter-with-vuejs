@@ -25,7 +25,7 @@ class RepositoryController extends BaseController
         $this->setSessionUrl($request);
 
         return $this->sendResponse(
-            'Users/index',
+            $this->template.'/index',
             $this->dataIndex($request)
         );
     }

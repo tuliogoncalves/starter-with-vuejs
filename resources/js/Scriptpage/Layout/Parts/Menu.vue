@@ -53,7 +53,7 @@
 		methods: {
 			can(name) {
 				const user = this.$page.props.flash.user;
-				const result = user.roles.find((role) => role.name === name);
+				const result = user?.roles.find((role) => role.name === name);
 				return result != null;
 			},
 		},

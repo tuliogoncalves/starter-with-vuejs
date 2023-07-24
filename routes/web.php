@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,10 @@ Route::middleware('auth')->group(function () {
  * Login routes
  */
 addRoute('web/login');
+
+Route::middleware('public')->group(function () {
+    /**
+     * Home routes
+     */
+    addRoute('public/home');
+});
