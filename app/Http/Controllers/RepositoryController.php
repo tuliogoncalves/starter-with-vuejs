@@ -130,7 +130,7 @@ class RepositoryController extends BaseController
     function store(Request $request)
     {
         $repository = $this->repository;
-        $repository->setDataPayload($request->all());
+        // $repository->setDataPayload($request->all());
 
         // Get Validator data
         $validator = $repository->getValidator('store');
@@ -157,7 +157,7 @@ class RepositoryController extends BaseController
     function update(Request $request, $id)
     {
         $repository = $this->repository;
-        $repository->setDataPayload($request->all());
+        // $repository->setDataPayload($request->all());
 
         // Get Validator
         $validator = $repository->getValidator('update');
